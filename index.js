@@ -20,18 +20,19 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 app.get('/image', async function (req, res) {
-	try {
-		const prompt = req.query.prompt
-		const response = await openai.createImage({
-			prompt,
-			n: 1,
-			size: '1024x1024',
-		})
-		image_url = response.data.data[0].url
-		res.json({ prompt, imageUrl: image_url })
-	} catch (err) {
-		res.json(err)
-	}
+	// try {
+	// 	const prompt = req.query.prompt
+	// 	const response = await openai.createImage({
+	// 		prompt,
+	// 		n: 1,
+	// 		size: '1024x1024',
+	// 	})
+	// 	image_url = response.data.data[0].url
+	// 	res.json({ prompt, imageUrl: image_url })
+	// } catch (err) {
+	// 	res.json(err)
+	// }
+	res.send('Hello')
 })
 
 app.listen(process.env.PORT || 5000)
